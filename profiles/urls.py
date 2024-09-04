@@ -7,3 +7,4 @@ urlpatterns = [
 ]
 
 
+#<int:pk> = uses a primary key in the form of a interger from the profiles
