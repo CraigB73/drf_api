@@ -2,6 +2,10 @@ from rest_framework import serializers
 from .models import Post
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Post model
+    Adds three extra fields when returning a list of Comment instances
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
