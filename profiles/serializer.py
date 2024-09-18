@@ -6,6 +6,9 @@ class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')#so it can't be edited
     is_owner = serializers.SerializerMethodField() #readonly gets value with the get_is_owner
     following_id = serializers.SerializerMethodField()
+    post_count = serializers.ReadOnlyField()
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
     
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -20,6 +23,9 @@ class ProfileSerializer(serializers.ModelSerializer):
             return following.id if following else None
         return None
             
-    class Meta:
+    class Meta: 
         model= Profile
-        fields = ['id', 'owner', 'updated_at', 'name', 'content', 'image', 'created_at', 'is_owner', 'following_id']
+        fields = ['id', 'owner', 'updated_at', 'name', 
+                  'content', 'image', 'created_at', 'is_owner', 'following_id',
+                  'post_count', 'followers_count', 'following_count'
+                  ]
