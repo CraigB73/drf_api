@@ -8,11 +8,13 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = [
-            'id', 'owner', 'post', 'create_at'
+            'id', 'owner', 'post', 'created_at'
         ]
         
     def create(self, validated_data):
         try:
+            # the .create method is on the serializers.ModelSerializer
+            # that is why super() is called
             return super().create(validated_data)
         except IntegrityError:
             raise serializers.ValidationError({
