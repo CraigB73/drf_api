@@ -48,8 +48,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ["127.0.0.1",
-    ".herokuapp.com",'https://git.heroku.com/drfblogapi.git']
+ALLOWED_HOSTS = ["localhost",
+                 os.environ.get('ALLOWED_HOST')]
 
 
 # Application definition
