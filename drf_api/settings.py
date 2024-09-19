@@ -49,7 +49,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ["127.0.0.1",
-    ".herokuapp.com",]
+    ".herokuapp.com",'https://git.heroku.com/drfblogapi.git']
 
 
 # Application definition
